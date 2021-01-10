@@ -3,6 +3,7 @@ const history = require("../models/history");
 exports.list =async (req, res) => {
   try {
     let historyList ;
+    let dumbVari;
     if (req.params.pageState == 0) {
       historyList = await history.find({}).sort({creation_date:-1}).limit(10);
     } else {
