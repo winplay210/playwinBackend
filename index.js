@@ -5,14 +5,15 @@ const index = require("./routes/routes");
 var cors = require('cors')
 var bodyParser = require('body-parser')
 const app = express();
+app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }))
-
+    
 // parse application/json
 app.use(bodyParser.json())
 // create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: false })
  
-app.use(cors())
+
 app.use(index);
 var {connectDB} = require('./config/connection')
 const server = http.createServer(app);
